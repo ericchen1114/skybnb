@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ tagliburi ="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html lang="en">
 
   <head>
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SkyBnb Backstage Platform</title>
+    <title>Skybnb Backstage</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,8 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="backstageplatfom.jsp">Skybnb Backstage</a>
+      
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -104,18 +105,20 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>管理</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-<!--             <a class="dropdown-item" href="login.html">Login</a> -->
-         
-            <a class="dropdown-item" href="register.html">Register</a>
+            <h6 class="dropdown-header">客服管理:</h6>
+             <a class="dropdown-item" href="<c:url value ="/backstagereportlist.controller"/>" method="get">客訴處理</a>
+              <a class="dropdown-item" href="<c:url value ="/backstagereportfinishedlist.controller"/>" method="get">客訴處理完清單</a>
+            <a class="dropdown-item" href="<c:url value ="/backstagemembermanagment.controller"/>" method="get">會員權限管理</a>
+            <div style="display: none;">
+<!--             <div > -->
+             <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">後台管理</h6>
+             <a class="dropdown-item" href="register.html">Register</a>
             <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a>
+            </div>
           </div>
         </li>
         <li class="nav-item">
@@ -143,72 +146,72 @@
           </ol>
 
           <!-- Icon Cards-->
-<!--           <div class="row"> -->
-<!--             <div class="col-xl-3 col-sm-6 mb-3"> -->
-<!--               <div class="card text-white bg-primary o-hidden h-100"> -->
-<!--                 <div class="card-body"> -->
-<!--                   <div class="card-body-icon"> -->
-<!--                     <i class="fas fa-fw fa-comments"></i> -->
-<!--                   </div> -->
-<!--                   <div class="mr-5">26 New Messages!</div> -->
-<!--                 </div> -->
-<!--                 <a class="card-footer text-white clearfix small z-1" href="#"> -->
-<!--                   <span class="float-left">View Details</span> -->
-<!--                   <span class="float-right"> -->
-<!--                     <i class="fas fa-angle-right"></i> -->
-<!--                   </span> -->
-<!--                 </a> -->
-<!--               </div> -->
-<!--             </div> -->
-<!--             <div class="col-xl-3 col-sm-6 mb-3"> -->
-<!--               <div class="card text-white bg-warning o-hidden h-100"> -->
-<!--                 <div class="card-body"> -->
-<!--                   <div class="card-body-icon"> -->
-<!--                     <i class="fas fa-fw fa-list"></i> -->
-<!--                   </div> -->
-<!--                   <div class="mr-5">11 New Tasks!</div> -->
-<!--                 </div> -->
-<!--                 <a class="card-footer text-white clearfix small z-1" href="#"> -->
-<!--                   <span class="float-left">View Details</span> -->
-<!--                   <span class="float-right"> -->
-<!--                     <i class="fas fa-angle-right"></i> -->
-<!--                   </span> -->
-<!--                 </a> -->
-<!--               </div> -->
-<!--             </div> -->
-<!--             <div class="col-xl-3 col-sm-6 mb-3"> -->
-<!--               <div class="card text-white bg-success o-hidden h-100"> -->
-<!--                 <div class="card-body"> -->
-<!--                   <div class="card-body-icon"> -->
-<!--                     <i class="fas fa-fw fa-shopping-cart"></i> -->
-<!--                   </div> -->
-<!--                   <div class="mr-5">123 New Orders!</div> -->
-<!--                 </div> -->
-<!--                 <a class="card-footer text-white clearfix small z-1" href="#"> -->
-<!--                   <span class="float-left">View Details</span> -->
-<!--                   <span class="float-right"> -->
-<!--                     <i class="fas fa-angle-right"></i> -->
-<!--                   </span> -->
-<!--                 </a> -->
-<!--               </div> -->
-<!--             </div> -->
-<!--             <div class="col-xl-3 col-sm-6 mb-3"> -->
-<!--               <div class="card text-white bg-danger o-hidden h-100"> -->
-<!--                 <div class="card-body"> -->
-<!--                   <div class="card-body-icon"> -->
-<!--                     <i class="fas fa-fw fa-life-ring"></i> -->
-<!--                   </div> -->
-<!--                   <div class="mr-5">13 New Tickets!</div> -->
-<!--                 </div> -->
-<!--                 <a class="card-footer text-white clearfix small z-1" href="#"> -->
-<!--                   <span class="float-left">View Details</span> -->
-<!--                   <span class="float-right"> -->
-<!--                     <i class="fas fa-angle-right"></i> -->
-<!--                   </span> -->
-<!--                 </a> -->
-<!--               </div> -->
-<!--             </div> -->
-<!--           </div> -->
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-comments"></i>
+                  </div>
+                  <div class="mr-5">26 New Messages!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-list"></i>
+                  </div>
+                  <div class="mr-5">11 New Tasks!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-shopping-cart"></i>
+                  </div>
+                  <div class="mr-5">123 New Orders!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-life-ring"></i>
+                  </div>
+                  <div class="mr-5">13 New Tickets!</div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="#">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
 
           <!-- Area Chart Example-->
           <div class="card mb-3">
@@ -717,10 +720,10 @@
         <!-- /.container-fluid -->
 
         <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
+        <footer class="sticky-footer" style="height:50px">
+          <div class="container my-auto" >
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Skybnb © Backstage 2018</span>
             </div>
           </div>
         </footer>

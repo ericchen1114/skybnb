@@ -12,7 +12,6 @@
 	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/scss/" mapping="/scss/**"></mvc:resources>
-	<mvc:resources location="/vendor/" mapping="/vendor/**"></mvc:resources>
 	<mvc:resources location="/backstageplatform/" mapping="/backstageplatform/**"></mvc:resources>
 	
 	
