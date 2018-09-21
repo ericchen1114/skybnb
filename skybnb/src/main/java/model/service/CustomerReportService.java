@@ -21,32 +21,28 @@ public class CustomerReportService {
 		}
 		return reportBean;
 	}
-  public List<CustomerReportBean> select(CustomerReportBean bean){
-	 List<CustomerReportBean> list = null;
-	 if(bean !=null && bean.getReportNumber().equals(null)) {
-		 CustomerReportBean customerReportBean = customerReportDAO.select(bean.getReportNumber()); 
-	   if(customerReportBean!=null) {
-		 list = new ArrayList<CustomerReportBean>();
-		 list.add(customerReportBean);
-	   }
-	}else {
-		list = customerReportDAO.select();
-	}
-	  return list;
-	  
-  }
 
-  public boolean update(CustomerReportBean bean) {
-	     boolean update = false ;
-	  if (bean!= null) {
-		 update  = customerReportDAO.update(bean.getReportNumber(),bean.getReportStatus());
-	  }
-	  return update;
-  }
-  
-//  public List<Object[]> joinData(){
-//	  
-////	  List<Object[]> list = customerReportDAO.join();
-//	  return list;
-//  }
+	public List<CustomerReportBean> select(boolean status) {
+		List<CustomerReportBean> list = null;
+//		if (bean != null && bean.getReportNumber().equals(null)) {
+//			CustomerReportBean customerReportBean = customerReportDAO.select(bean.getReportNumber());
+//			if (customerReportBean != null) {
+//				list = new ArrayList<CustomerReportBean>();
+//				list.add(customerReportBean);
+//			}
+//		} else {
+			list = customerReportDAO.select(status);
+//		}
+		return list;
+
+	}
+
+	public boolean update(CustomerReportBean bean) {
+		boolean update = false;
+		if (bean != null) {
+			update = customerReportDAO.update(bean.getReportNumber(), bean.getReportStatus());
+		}
+		return update;
+	}
+
 }

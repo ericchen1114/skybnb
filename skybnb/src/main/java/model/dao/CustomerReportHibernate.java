@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import model.CustomerReportDAO;
 import model.ProductBean;
 import model.bean.CustomerReportBean;
-import tools.OrderListJoin;
 
 @Repository
 public class CustomerReportHibernate implements CustomerReportDAO {
@@ -57,17 +56,17 @@ public class CustomerReportHibernate implements CustomerReportDAO {
 	}
 
 	@Override
-	public List<CustomerReportBean> select() {
+	public List<CustomerReportBean> select(boolean status) {
 		 String sql ="select * from CustomerReport where reportStatus = ";
 		 String Hsql= "from  CustomerReportBean c "+" where c.reportStatus = :reportStatus";
 		try {
-			 System.out.println(this.getSession().createQuery(Hsql,CustomerReportBean.class).setParameter("reportStatus", false).list());
+			 System.out.println(this.getSession().createQuery(Hsql,CustomerReportBean.class).setParameter("reportStatus", status).list());
 
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 		// HQL語法
-		List<CustomerReportBean> list = this.getSession().createQuery(Hsql,CustomerReportBean.class).setParameter("reportStatus", false).list();
+		List<CustomerReportBean> list = this.getSession().createQuery(Hsql,CustomerReportBean.class).setParameter("reportStatus", status).list();
 		return list;
 		
 	}

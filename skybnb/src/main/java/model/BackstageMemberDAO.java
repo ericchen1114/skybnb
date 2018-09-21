@@ -1,13 +1,13 @@
 package model;
 
+import java.util.List;
+
 import model.bean.MemberBean;
 
-public interface MemberDAO {
-	public abstract MemberBean select(Integer memberID);
+public interface BackstageMemberDAO {
+	public abstract List<MemberBean> select();
 	
-	public abstract MemberBean selectByUsername(String account);
-	
-	public abstract MemberBean insert(MemberBean bean);
+	public abstract MemberBean upDate(String membercaacount,String status);
 	
 	
 	
